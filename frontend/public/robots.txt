@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://f-skogstad.com/sitemap-index.xml

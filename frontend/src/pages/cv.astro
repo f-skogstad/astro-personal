@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TimeLineElement from '../components/cv/TimeLine.astro';
+---
+
+<BaseLayout title='Resume'>
+  <div class='mb-5'>
+    <div class='text-3xl w-full font-bold'>Profile</div>
+  </div>
+
+  <!-- Introduction Section -->
+  <div class='mb-10 text-justify'>
+    <p class='mb-2'>
+      I am a webdeveloper with 3 years of experience, specializing in frontend
+      development.
+    </p>
+    <p>
+      By beeing ambitious I always strive to "beat yesterday". I am an effective
+      problemsolver, and one of my strengths is to understand the core of the
+      problem where others might get hung up in the details. I am
+      straightforward and not afraid to speak up and question the status-quo.
+      Most of all I love learning! I am always curious about new knowledge and
+      new ideas.
+    </p>
+  </div>
+
+  <!-- Education Section -->
+  <div class='mb-5'>
+    <h2 class='text-3xl w-full font-bold'>Education</h2>
+  </div>
+
+  <div class='time-line-container grid gap-4 mb-10'>
+    <TimeLineElement
+      title='IT: Frontend Development'
+      subtitle='2019-2022 Høyskolen Kristiania'
+    />
+    <TimeLineElement
+      title='Finance'
+      subtitle='2018-2019 Høyskolen Kristiania'
+    />
+    <TimeLineElement
+      title='Human Resources & Leadership'
+      subtitle='2015-2018 at Høyskolen Kristiania'
+    />
+  </div>
+
+  <!-- Experience Section -->
+  <div class='mb-5'>
+    <h2 class='text-3xl w-full font-bold'>Experience</h2>
+  </div>
+
+  <div class='time-line-container mb-10'>
+    <TimeLineElement
+      title='IT Consultant at twoday'
+      subtitle='2022-Present, Oslo, Norway'
+      desc='Frontend development for various customers'
+    />
+    <TimeLineElement
+      title='Business Intelligence Consultant at Coop'
+      subtitle='2019-2021, Oslo, Norway'
+      desc="Worked on a project where our goal is to rebuild a large part of the company's BI-system from the ground up"
+    />
+  </div>
+
+  <!-- Certifications Section -->
+  <div class='mb-5'>
+    <h2 class='text-3xl w-full font-bold'>Certifications</h2>
+  </div>
+
+  <ul class='list-disc mx-6 mb-10 grid gap-2'>
+    <li>
+      <a
+        class='link'
+        href='https://www.credly.com/badges/dae12ced-301a-40a0-9f9b-24e096f4f3a6/public_url'
+        target='_blank'
+      >
+        Microsoft Certified: Azure Developer Associate</a
+      >
+    </li>
+    <li>
+      <a
+        class='link'
+        href='https://www.credly.com/badges/e9b567f5-06f6-4c0b-84f7-bfb6992376e9/public_url'
+        target='_blank'
+      >
+        AWS Certified Cloud Practitioner</a
+      >
+    </li>
+    <li>
+      <a
+        class='link'
+        href='https://www.credly.com/badges/2dfb999e-f718-4a28-ad64-3ee327c9c56f/public_url'
+        target='_blank'
+      >
+        Microsoft Certified: Azure Data Fundamentals</a
+      >
+    </li>
+    <li>
+      <a
+        class='link'
+        href='https://www.credly.com/badges/fea60e93-28d1-436d-b010-3274365aa30c/public_url'
+        target='_blank'
+      >
+        Microsoft Certified: Azure Fundamentals</a
+      >
+    </li>
+  </ul>
+
+  <div class='mb-5'>
+    <h2 class='text-3xl w-full font-bold'>Skills</h2>
+  </div>
+
+  <!-- Skills section -->
+  <ul class='list-disc md:columns-5 columns-2 mx-6'>
+    <li>JavaScript</li>
+    <li>MySQL</li>
+    <li>CSS</li>
+    <li>SASS</li>
+    <li>HTML</li>
+    <li>Node.js</li>
+    <li>Astro</li>
+    <li>Bootstrap</li>
+    <li>Taildwind</li>
+    <li>Git</li>
+    <li>WEB Design</li>
+  </ul>
+</BaseLayout>

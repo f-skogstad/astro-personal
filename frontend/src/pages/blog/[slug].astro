@@ -1,0 +1,28 @@
+---
+import PostLayout from '@layouts/PostLayout.astro';
+import { getBlogPosts, urlForImage, getBlogPostCategories } from '@lib/api';
+import PortableText from '@components/PortableText.astro';
+
+const PostsCategories = await getBlogPostCategories();
+
+export async function getStaticPaths() {
+  const blogPosts = await getBlogPosts();
+  return blogPosts.map((post) => ({
+    params: { slug: post.slug.current },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+---
+
+<PostLayout
+  title={post.title}
+  description={post.title}
+  pubDate={post.publishedAt}
+  heroImage={urlForImage(post.mainImage).url()}
+  updatedDate={post._updatedAt}
+  badge={PostsCategories[0].categories[0].title}
+>
+  <PortableText portableText={post.body} />
+</PostLayout>

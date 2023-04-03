@@ -1,0 +1,80 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import HorizontalCard from '@components/Card.astro';
+import {
+  urlForImage,
+  getBlogPosts,
+  getBlogPostCategories,
+  getProjects,
+  getProjectCategories,
+} from '@lib/api';
+
+const PostsCategories = await getBlogPostCategories();
+const ProjectCategories = await getProjectCategories();
+
+// Posts
+const posts = (await getBlogPosts()).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const last_posts = posts.slice(0, 3);
+
+// Projects
+const projects = (await getProjects()).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const last_projects = projects.slice(0, 3);
+---
+
+<BaseLayout>
+  <div class='pb-12 mt-5'>
+    <div class='text-xl py-1'>Hi there 👋</div>
+    <div class='text-5xl font-bold'>I'm Fredrik Skogstad</div>
+    <div class='text-3xl py-3 font-bold'>Web Developer and Entrepreneur</div>
+    <div class='py-2'>
+      <text class='text-lg'> This is my personal website</text>
+    </div>
+    <!-- <div class='mt-8'>
+      <a class='btn btn-primary' href='#' target='_blank'>Hire me!</a>
+    </div> -->
+  </div>
+
+  <div>
+    <div class='text-3xl w-full font-bold mb-2'>My latest projects {'</>'}</div>
+  </div>
+
+  {
+    last_projects.map((project, index) => (
+      <>
+        <HorizontalCard
+          title={project.title}
+          img={urlForImage(project.mainImage).url()}
+          desc={project.body[0].children[0].text}
+          url={project.url}
+          target='_blank'
+          badge={ProjectCategories[index].categories[0].title}
+        />
+        <div class='divider my-0' />
+      </>
+    ))
+  }
+
+  <div>
+    <div class='text-3xl w-full font-bold mb-5 mt-10'>Latest blog posts</div>
+  </div>
+
+  {
+    last_posts.map((post, index) => (
+      <>
+        <HorizontalCard
+          title={post.title}
+          img={urlForImage(post.mainImage).url()}
+          desc={post.body[0].children[0].text}
+          url={'/blog/' + post.slug.current}
+          target='_self'
+          badge={PostsCategories[index].categories[0].title}
+        />
+        <div class='divider my-0' />
+      </>
+    ))
+  }
+</BaseLayout>
