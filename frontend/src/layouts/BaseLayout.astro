@@ -1,15 +1,16 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import SideBar from '../components/SideBar.astro';
+import BaseHead from '@components/BaseHead.astro';
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
+import SideBar from '@components/SideBar.astro';
+import { getSiteSettings } from '@lib/api';
 
-import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+const SiteSettings = await getSiteSettings();
 
 const {
   image,
-  title = SITE_TITLE,
-  description = SITE_DESCRIPTION,
+  title = SiteSettings.title,
+  description = SiteSettings.description,
   includeSidebar = true,
 } = Astro.props;
 ---
@@ -23,7 +24,7 @@ const {
     <div class='bg-base-100 drawer drawer-mobile'>
       <input id='my-drawer' type='checkbox' class='drawer-toggle' />
       <div class='drawer-content flex flex-col bg-base-100'>
-        <Header title={SITE_TITLE} />
+        <Header title={title} />
         <div class='md:flex md:justify-center'>
           <main class='p-6 pt-10 max-w-[900px]'>
             <slot />
