@@ -7,7 +7,7 @@ module.exports = {
   daisyui: {
     themes: [
       {
-        mytheme: {
+        customDark: {
           primary: '#2f3e46',
 
           secondary: '#52796f',
@@ -27,6 +27,7 @@ module.exports = {
           error: '#d00000',
         },
       },
+      'corporate',
     ],
   },
   plugins: [require('@tailwindcss/typography'), require('daisyui')],
