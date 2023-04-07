@@ -26,11 +26,22 @@ export default defineType({
       title: 'Author',
       type: 'reference',
       to: {type: 'author'},
+      initialValue: {
+        _type: 'reference',
+        _ref: '66222bb7-0715-46b9-ade4-72cb31547605', // Fredrik Skogstad
+      },
     }),
     defineField({
       name: 'mainImage',
       title: 'Main image',
       type: 'image',
+      initialValue: {
+        _type: 'image',
+        asset: {
+          _type: 'reference',
+          _ref: 'image-b62651ef34a9e54c354ee437545acc348fbf0505-1200x900-png', // Stock photo
+        },
+      },
       options: {
         hotspot: true,
       },

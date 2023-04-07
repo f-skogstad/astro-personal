@@ -9,7 +9,7 @@ import {
   getProjectCategories,
 } from '@lib/api';
 
-const PostsCategories = await getBlogPostCategories();
+const PostCategories = await getBlogPostCategories();
 const ProjectCategories = await getProjectCategories();
 
 // Posts
@@ -68,7 +68,7 @@ const last_projects = projects.slice(0, 3);
           desc={post.body[0].children[0].text}
           url={'/blog/' + post.slug.current}
           target='_self'
-          badge={PostsCategories[index].categories[0].title}
+          badge={PostCategories[index].categories[0].title}
         />
         <div class='divider my-0' />
       </>
