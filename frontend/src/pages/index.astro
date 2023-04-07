@@ -14,13 +14,13 @@ const ProjectCategories = await getProjectCategories();
 
 // Posts
 const posts = (await getBlogPosts()).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  (a, b) => b.publishedAt - a.publishedAt
 );
 const last_posts = posts.slice(0, 3);
 
 // Projects
 const projects = (await getProjects()).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  (a, b) => b.publishedAt - a.publishedAt
 );
 const last_projects = projects.slice(0, 3);
 ---

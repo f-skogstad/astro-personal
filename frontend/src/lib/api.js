@@ -14,7 +14,7 @@ export function urlForImage(source) {
 
 // Portable Text
 const customComponents = {
-  /* your custom components here */
+  /* Place custom components here */
   types: {
     image: ({ value }) =>
       `<img src="${urlForImage(value).url()}" style="max-width:100%;" />`,
@@ -40,21 +40,21 @@ export async function getBlogPosts() {
   return posts;
 }
 
-// Blog Posts Categories
+// Blog Post Categories
 export async function getBlogPostCategories() {
   const query = groq`*[_type == "post"]{categories[] ->}`;
   const postCategories = await useSanityClient().fetch(query);
   return postCategories;
 }
 
-// Blog Posts
+// Projects
 export async function getProjects() {
   const query = groq`*[_type == "project"]`;
   const projects = await useSanityClient().fetch(query);
   return projects;
 }
 
-// Blog Posts Categories
+// Project Categories
 export async function getProjectCategories() {
   const query = groq`*[_type == "project"]{categories[] ->}`;
   const projectCategories = await useSanityClient().fetch(query);
