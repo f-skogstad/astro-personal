@@ -1,9 +1,7 @@
 ---
 import PostLayout from '@layouts/PostLayout.astro';
-import { getBlogPosts, urlForImage, getBlogPostCategories } from '@lib/api';
+import { getBlogPosts } from '@lib/api';
 import PortableText from '@components/PortableText.astro';
-
-const PostsCategories = await getBlogPostCategories();
 
 export async function getStaticPaths() {
   const blogPosts = await getBlogPosts();
@@ -18,11 +16,10 @@ const { post } = Astro.props;
 
 <PostLayout
   title={post.title}
-  description={post.title}
+  description={post.body}
   pubDate={post.publishedAt}
-  heroImage={urlForImage(post.mainImage).url()}
+  heroImage={post.mainImage}
   updatedDate={post._updatedAt}
-  badge={PostsCategories[0].categories[0].title}
 >
   <PortableText portableText={post.body} />
 </PostLayout>
